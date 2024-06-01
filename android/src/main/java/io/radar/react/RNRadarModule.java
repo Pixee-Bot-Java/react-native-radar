@@ -266,11 +266,11 @@ public class RNRadarModule extends ReactContextBaseJavaModule implements Permiss
         RadarTrackingOptions.RadarTrackingOptionsDesiredAccuracy accuracyLevel = RadarTrackingOptions.RadarTrackingOptionsDesiredAccuracy.MEDIUM;        
         String accuracy = desiredAccuracy != null ? desiredAccuracy.toLowerCase()  : "medium";
         
-        if (accuracy.equals("low")) {
+        if ("low".equals(accuracy)) {
             accuracyLevel = RadarTrackingOptions.RadarTrackingOptionsDesiredAccuracy.LOW;
-        } else if (accuracy.equals("medium")) {
+        } else if ("medium".equals(accuracy)) {
             accuracyLevel = RadarTrackingOptions.RadarTrackingOptionsDesiredAccuracy.MEDIUM;
-        } else if (accuracy.equals("high")) {
+        } else if ("high".equals(accuracy)) {
             accuracyLevel = RadarTrackingOptions.RadarTrackingOptionsDesiredAccuracy.HIGH;
         } else {
             promise.reject(Radar.RadarStatus.ERROR_BAD_REQUEST.toString(), Radar.RadarStatus.ERROR_BAD_REQUEST.toString());
@@ -517,11 +517,11 @@ public class RNRadarModule extends ReactContextBaseJavaModule implements Permiss
         destination.setLongitude(destinationLongitude);
         String modeStr = optionsMap.getString("mode");
         Radar.RadarRouteMode mode = Radar.RadarRouteMode.CAR;
-        if (modeStr.equals("FOOT") || modeStr.equals("foot")) {
+        if ("FOOT".equals(modeStr) || "foot".equals(modeStr)) {
             mode = Radar.RadarRouteMode.FOOT;
-        } else if (modeStr.equals("BIKE") || modeStr.equals("bike")) {
+        } else if ("BIKE".equals(modeStr) || "bike".equals(modeStr)) {
             mode = Radar.RadarRouteMode.BIKE;
-        } else if (modeStr.equals("CAR") || modeStr.equals("car")) {
+        } else if ("CAR".equals(modeStr) || "car".equals(modeStr)) {
             mode = Radar.RadarRouteMode.CAR;
         }
         int steps = optionsMap.hasKey("steps") ? optionsMap.getInt("steps") : 10;
@@ -1176,13 +1176,13 @@ public class RNRadarModule extends ReactContextBaseJavaModule implements Permiss
         String[] modesArr = optionsMap.hasKey("modes") ? RNRadarUtils.stringArrayForArray(optionsMap.getArray("modes")) : new String[]{};
         EnumSet<Radar.RadarRouteMode> modes = EnumSet.noneOf(Radar.RadarRouteMode.class);
         for (String modeStr : modesArr) {
-            if (modeStr.equals("FOOT") || modeStr.equals("foot")) {
+            if ("FOOT".equals(modeStr) || "foot".equals(modeStr)) {
                 modes.add(Radar.RadarRouteMode.FOOT);
             }
-            if (modeStr.equals("BIKE") || modeStr.equals("bike")) {
+            if ("BIKE".equals(modeStr) || "bike".equals(modeStr)) {
                 modes.add(Radar.RadarRouteMode.BIKE);
             }
-            if (modeStr.equals("CAR") || modeStr.equals("car")) {
+            if ("CAR".equals(modeStr) || "car".equals(modeStr)) {
                 modes.add(Radar.RadarRouteMode.CAR);
             }
         }
